@@ -3,10 +3,8 @@ using EvFleetOptimizer.Core.Entities;
 
 namespace EvFleetOptimizer.Infrastructure.Data;
 
-public class FleetDbContext : DbContext
+public class FleetDbContext(DbContextOptions<FleetDbContext> options) : DbContext(options)
 {
-    public FleetDbContext(DbContextOptions<FleetDbContext> options) : base(options) { }
-
     public DbSet<Vehicle> Vehicles { get; set; }
     public DbSet<Trip> Trips { get; set; }
     public DbSet<Depot> Depots { get; set; }
@@ -18,5 +16,22 @@ public class FleetDbContext : DbContext
     public DbSet<PublicChargerPriceHistory> PublicChargerPriceHistories { get; set; }
     public DbSet<TimeOfUseTariff> TimeOfUseTariffs { get; set; }
 
-    // Optionally override OnModelCreating for relationships/configuration
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Trip <-> Location (Origin)
+        modelBuilder.Entity<Trip>()
+            .HasOne(t => t.OriginLocation)
+            .WithMany(l => l.TripsAsOrigin)
+            .HasForeignKey(t => t.OriginLocationId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Trip <-> Location (Destination)
+        modelBuilder.Entity<Trip>()
+            .HasOne(t => t.DestinationLocation)
+            .WithMany(l => l.TripsAsDestination)
+            .HasForeignKey(t => t.DestinationLocationId)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
 }

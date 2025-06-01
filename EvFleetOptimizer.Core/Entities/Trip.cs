@@ -3,13 +3,13 @@ namespace EvFleetOptimizer.Core.Entities;
 public class Trip
 {
     public int Id { get; set; }
-    public int VehicleId { get; set; } // FK to Vehicle
+    public int VehicleId { get; set; }
     public Vehicle? Vehicle { get; set; }
-    public int DriverId { get; set; } // FK to Driver
+    public int DriverId { get; set; }
     public Driver? Driver { get; set; }
-    public int OriginLocationId { get; set; } // FK to Location
+    public int OriginLocationId { get; set; }
     public Location? OriginLocation { get; set; }
-    public int DestinationLocationId { get; set; } // FK to Location
+    public int DestinationLocationId { get; set; }
     public Location? DestinationLocation { get; set; }
     public DateTime ScheduledStart { get; set; }
     public DateTime ScheduledEnd { get; set; }

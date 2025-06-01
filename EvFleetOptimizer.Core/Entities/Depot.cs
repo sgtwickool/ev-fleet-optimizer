@@ -8,6 +8,6 @@ public class Depot
     public Location? Location { get; set; }
     public int ChargerCount { get; set; } // e.g. 3 chargers available
     public double MaxPowerKW { get; set; } // combined max capacity
-    public ICollection<ChargingSession> ChargingSessions { get; set; } = new List<ChargingSession>();
+    public ICollection<ChargingSession> ChargingSessions { get; set; } = [];
 }
 

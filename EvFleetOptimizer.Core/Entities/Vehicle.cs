@@ -9,11 +9,12 @@ public class Vehicle
     public double MaxRangeKm { get; set; } // e.g. 250.0
     public double CurrentSoCPercent { get; set; } // e.g. 60.0
     public bool IsAvailable { get; set; } // true if not on trip/charging
+    public double BatteryCapacityKWh { get; set; } // e.g. 52.0
 
     // Navigation
     public int? AssignedDriverId { get; set; }
     public Driver? AssignedDriver { get; set; }
-    public ICollection<Trip> Trips { get; set; } = new List<Trip>(); // all past/future trips
-    public ICollection<ChargingSession> ChargingSessions { get; set; } = new List<ChargingSession>();
+    public ICollection<Trip> Trips { get; set; } = []; // all past/future trips
+    public ICollection<ChargingSession> ChargingSessions { get; set; } = [];
 }
 

@@ -2,8 +2,8 @@ namespace EvFleetOptimizer.API.DTOs;
 
 public class FleetOverviewDto
 {
-    public List<VehicleStatusDto> Vehicles { get; set; } = new();
-    public List<LowChargeAlertDto> LowChargeAlerts { get; set; } = new();
+    public List<VehicleStatusDto> Vehicles { get; set; } = [];
+    public List<LowChargeAlertDto> LowChargeAlerts { get; set; } = [];
 }
 
 public class VehicleStatusDto

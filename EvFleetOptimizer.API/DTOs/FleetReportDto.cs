@@ -4,7 +4,7 @@ public class FleetReportDto
 {
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
-    public List<VehicleReportDto> Vehicles { get; set; } = new();
+    public List<VehicleReportDto> Vehicles { get; set; } = [];
     public double TotalDistanceKm { get; set; }
     public double TotalEnergyKwh { get; set; }
     public double TotalCost { get; set; }

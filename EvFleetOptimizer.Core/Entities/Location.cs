@@ -9,7 +9,7 @@ public class Location
     public string AddressLine { get; set; } = string.Empty; // optional street address
     
     // Navigation
-    public ICollection<Trip> TripsAsOrigin { get; set; } = new List<Trip>();
-    public ICollection<Trip> TripsAsDestination { get; set; } = new List<Trip>();
-    public ICollection<Depot> Depots { get; set; } = new List<Depot>(); // if this location is a depot
+    public ICollection<Trip> TripsAsOrigin { get; set; } = [];
+    public ICollection<Trip> TripsAsDestination { get; set; } = [];
+    public ICollection<Depot> Depots { get; set; } = []; // if this location is a depot
 }

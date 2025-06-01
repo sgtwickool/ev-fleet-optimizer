@@ -1,4 +1,10 @@
-namespace EvFleetOptimizer.API.DTOs;
+namespace EvFleetOptimizer.Core.DTOs;
+
+public class CreateTripResponseDto
+{
+    public int TripId { get; set; }
+    public List<VehicleSuggestionDto> VehicleSuggestions { get; set; } = [];
+}
 
 public class VehicleSuggestionDto
 {

@@ -8,6 +8,6 @@ public class Driver
     public string PhoneNumber { get; set; } = string.Empty; // optional
     
     // Navigation
-    public ICollection<Vehicle> AssignedVehicles { get; set; } = new List<Vehicle>();
-    public ICollection<Trip> AssignedTrips { get; set; } = new List<Trip>();
+    public ICollection<Vehicle> AssignedVehicles { get; set; } = [];
+    public ICollection<Trip> AssignedTrips { get; set; } = [];
 }
